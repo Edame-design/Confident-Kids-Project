@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Website</title>
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- 🔹 Top Navbar -->
+  <nav class="top-nav">
+  <ul>
+    <li class="aply"><a href="admission.html">Apply Now</a></li>
+    <li><a href="#">Brochure</a></li>
+    <li><a href="#">Summer School</a></li>
+  </ul>
+</nav>
+
+<!-- 🔹 Main nav (stays fixed at top) -->
+  <nav class="main-nav">
+  <div class="schoollogo">
+    <h2>Confident Kid's International School</h2>
+  </div>
+
+  <!-- Menu Icon (only visible on small screens) -->
+  <div class="menu-icon">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#aboutus">About Us</a></li>
+    <li><a href="#academics">Academics</a></li>
+    <li><a href="admission.html">Admission</a></li>
+    <li><a href="#">News</a></li>
+  </ul>
+</nav>
+
+<!-- Overlay for background when menu opens -->
+<div class="overlay-1"></div>
+
+
+
+  <!--  -->
+
+  <div class="form-wrapper">
+  <div class="form-container">
+    <h1>Admission Form for Nursery & Primary</h1>
+    <form action="submit_nursery_primary.php" method="POST">
+
+      <label>Name of Pupil (a) Name:</label>
+      <input type="text" name="pupil_name" required>
+
+      <label>(b) Other Name:</label>
+      <input type="text" name="other_name">
+
+      <label>Permanent Home/Local Govt. of Origin:</label>
+      <input type="text" name="local_govt" required>
+
+      <label>State of Origin:</label>
+      <input type="text" name="state_of_origin" required>
+
+      <label>Date of Birth:</label>
+      <input type="date" name="dob" required>
+
+      <label>Age:</label>
+      <input type="number" name="age" required>
+
+      <label>Sex:</label>
+      <select name="sex" required>
+        <option value="">Select</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+
+      <label>Parent/Guardian’s Name:</label>
+      <input type="text" name="guardian_name" required>
+
+      <label>Address of Parent/Guardian:</label>
+      <textarea name="guardian_address" rows="2" required></textarea>
+
+      <label>Phone Number of Parent/Guardian:</label>
+      <input type="tel" name="guardian_phone" required>
+
+      <label>Class Applied Into:</label>
+      <input type="text" name="class_applied" required>
+
+      <label>Religion of Pupil’s Parent/Guardian:</label>
+      <input type="text" name="religion">
+
+      <label>Has the child been to school before?</label>
+      <select name="been_to_school" required>
+        <option value="">Select</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label>If Yes, Write the Name of the School:</label>
+      <input type="text" name="previous_school">
+
+      <label>Pupil Previous Class:</label>
+      <input type="text" name="previous_class">
+
+      <label>Who bring and take the child home after school?</label>
+      <input type="text" name="pickup_person">
+
+      <label>Address the child should be taken to in case of emergency:</label>
+      <textarea name="emergency_address" rows="2"></textarea>
+
+      <label>Name/Signature of Parent/Guardian:</label>
+      <input type="text" name="signature" required>
+
+      <label>Date:</label>
+      <input type="date" name="date" required>
+
+      <button type="submit">Submit Application</button>
+      <a href="secondaryadmission.html" class="alt-btn">Need Secondary Form?</a>
+    </form>
+  </div>
+</div>
+
+   <footer>
+    <div class="footer-container">
+      <!-- Left Column: Campuses -->
+      <div class="footer-column">
+        <h3><i class="fas fa-school"></i> Confident Kids International School</h3>
+        <p><i class="fas fa-map-marker-alt"></i> No 51 Okuku Road</p>
+      </div>
+
+      <!-- Middle Column: Academic Links -->
+      <div class="footer-column">
+        <h3>Academic</h3>
+        <a href="#">Canvas</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">School Services</a>
+        <a href="#">School Policies</a>
+        <a href="#">F.A.Q</a>
+      </div>
+
+      <!-- Right Column: Contact -->
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p><i class="fas fa-envelope"></i> edamejames086@gmail.com</p>
+        <p><i class="fas fa-phone"></i> +234 8144919771</p>
+        <p><i class="fas fa-map-pin"></i> No 51 Okuku Road</p>
+
+        <!-- Social Media -->
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accreditation Logos (Optional) -->
+    <!-- <div class="footer-logos">
+      <img src="https://via.placeholder.com/100x50" alt="Accreditation 1">
+      <img src="https://via.placeholder.com/100x50" alt="Accreditation 2">
+      <img src="https://via.placeholder.com/100x50" alt="Accreditation 3">
+    </div> -->
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      © Copyright 2024 Confident Kids International School. All Rights Reserved
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

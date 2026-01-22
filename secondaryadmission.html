@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Website</title>
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- 🔹 Top Navbar -->
+  <nav class="top-nav">
+  <ul>
+    <li class="aply"><a href="admission.html">Apply Now</a></li>
+    <li><a href="#">Brochure</a></li>
+    <li><a href="#">Summer School</a></li>
+  </ul>
+</nav>
+
+<!-- 🔹 Main nav (stays fixed at top) -->
+  <nav class="main-nav">
+  <div class="schoollogo">
+    <h2>Confident Kid's International School</h2>
+  </div>
+
+  <!-- Menu Icon (only visible on small screens) -->
+  <div class="menu-icon">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#aboutus">About Us</a></li>
+    <li><a href="#academics">Academics</a></li>
+    <li><a href="admission.html">Admission</a></li>
+    <li><a href="#">News</a></li>
+  </ul>
+</nav>
+
+<!-- Overlay for background when menu opens -->
+<div class="overlay-1"></div>
+
+
+
+  <!--  -->
+
+  <div class="form-wrapper">
+  <div class="form-container">
+    <h1>Admission Form for Secondary</h1>
+  <form id="admissionForm" method="POST">
+  <label>Surname</label>
+  <input type="text" name="surname" required>
+
+  <label>Other Names</label>
+  <input type="text" name="other_names" required>
+
+  <label>Permanent Home Address</label>
+  <textarea name="home_address" rows="3" required></textarea>
+
+  <label>Local Government</label>
+  <input type="text" name="lga" required>
+
+  <label>State of Origin</label>
+  <input type="text" name="state_of_origin" required> <!-- ✅ fixed -->
+
+  <label>Date of Birth</label>
+  <input type="date" name="dob" required>
+
+  <label>Age</label>
+  <input type="number" name="age" required>
+
+  <label>Sex</label>
+  <select name="sex" required>
+    <option value="">Select</option>
+    <option>Male</option>
+    <option>Female</option>
+  </select>
+
+  <label>Parent/Guardian Name</label>
+  <input type="text" name="parent_guardian_name" required> <!-- ✅ fixed -->
+
+  <label>Address of Parent/Guardian</label>
+  <textarea name="guardian_address" rows="3" required></textarea>
+
+  <label>Father/Guardian Phone Number</label>
+  <input type="tel" name="father_phone">
+
+  <label>Mother Phone Number</label>
+  <input type="tel" name="mother_phone">
+
+  <label>Religion of Student</label>
+  <input type="text" name="religion">
+
+  <label>Name & Address of Previous School</label>
+  <textarea name="previous_school" rows="3"></textarea>
+
+  <label>Year of Attendance</label>
+  <input type="text" name="attendance_year">
+
+  <label>Games/Sports Represented</label>
+  <input type="text" name="sports">
+
+  <label>Have you ever been suspended?</label>
+  <select name="suspended" required>
+    <option value="">Select</option>
+    <option>Yes</option>
+    <option>No</option>
+  </select>
+
+  <label>Any Physical Challenge?</label>
+  <input type="text" name="physical_challenge">
+
+  <label>Emergency Contact</label> <!-- ✅ added so DB doesn’t fail -->
+  <input type="text" name="emergency_contact" required>
+
+  <button type="submit">Submit Application</button>
+</form>
+
+<p id="responseMsg"></p>
+  </div>
+</div>
+
+   <footer>
+    <div class="footer-container">
+      <!-- Left Column: Campuses -->
+      <div class="footer-column">
+        <h3><i class="fas fa-school"></i> Confident Kids International School</h3>
+        <p><i class="fas fa-map-marker-alt"></i> No 51 Okuku Road</p>
+      </div>
+
+      <!-- Middle Column: Academic Links -->
+      <div class="footer-column">
+        <h3>Academic</h3>
+        <a href="#">Canvas</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">School Services</a>
+        <a href="#">School Policies</a>
+        <a href="#">F.A.Q</a>
+      </div>
+
+      <!-- Right Column: Contact -->
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p><i class="fas fa-envelope"></i> edamejames086@gmail.com</p>
+        <p><i class="fas fa-phone"></i> +234 8144919771</p>
+        <p><i class="fas fa-map-pin"></i> No 51 Okuku Road</p>
+
+        <!-- Social Media -->
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accreditation Logos (Optional) -->
+    <!-- <div class="footer-logos">
+      <img src="https://via.placeholder.com/100x50" alt="Accreditation 1">
+      <img src="https://via.placeholder.com/100x50" alt="Accreditation 2">
+      <img src="https://via.placeholder.com/100x50" alt="Accreditation 3">
+    </div> -->
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      © Copyright 2024 Confident Kids International School. All Rights Reserved
+    </div>
+  </footer>
+
+
+  <script>
+   document.getElementById("admissionForm").addEventListener("submit", async function(event) {
+  event.preventDefault(); // prevent page reload
+
+  // Collect form data
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    const response = await fetch("http://localhost:3000/admissions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      // ✅ Show popup if admission saved successfully
+      alert(result.message || "✅ Application submitted successfully!");
+      this.reset(); // clear form after success
+    } else {
+      // ❌ Show error popup if something went wrong
+      alert(result.message || "❌ Failed to submit application.");
+    }
+
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    alert("⚠️ Something went wrong. Please try again later.");
+  }
+});
+     
+  </script>
+</body>
+</html>
